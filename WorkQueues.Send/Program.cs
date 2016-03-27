@@ -10,7 +10,7 @@ class Send
         using (var channel = connection.CreateModel())
         {
             //可以使用ExchangeType.Direct这个常量    
-            channel.ExchangeDeclare(exchange: "logs", type: "direct");
+            channel.ExchangeDeclare(exchange: "logs", type: "direct", durable: true);
 
             channel.QueueDeclare(queue: "workqueue",
                                  durable: true,
